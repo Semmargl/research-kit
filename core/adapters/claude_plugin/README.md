@@ -54,9 +54,13 @@ on a real machine, not in a sandbox.
 
 ```bash
 unzip -q dist/claude-os-kits-all-<version>-plugin.zip -d /tmp/plugin-check
-claude plugin validate /tmp/plugin-check               # 1. schema
+claude plugin validate /tmp/plugin-check --strict      # 1. schema
 claude --plugin-dir /tmp/plugin-check                  # 2. live load
 ```
+
+`--strict` turns unknown-field warnings into errors, which is what you want before publishing.
+It needs a recent CLI: on 2.1.84 it fails with `unknown option '--strict'`, and dropping the flag
+is the wrong fix — upgrade Claude Code instead.
 
 Step 1 checks the manifest against the schema. Step 2 loads the plugin for real and is the only
 step that catches a component the runtime never picks up: a validator reports what is declared

@@ -25,7 +25,7 @@ Re-running is a no-op: files you edited are detected by hash and skipped, not cl
 
 ```bash
 unzip research-kit-<version>-plugin.zip -d /tmp/research-kit-plugin
-claude plugin validate /tmp/research-kit-plugin            # 1. schema
+claude plugin validate /tmp/research-kit-plugin --strict   # 1. schema
 claude --plugin-dir /tmp/research-kit-plugin               # 2. live load
 ```
 
