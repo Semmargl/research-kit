@@ -21,7 +21,7 @@ arriving without their scope, and three citations stacked after four claims.
 Three steps. The third is the one people skip, and it is the one that makes the kit yours.
 
 ```bash
-git clone <this repo> research-kit
+git clone https://github.com/Semmargl/research-kit research-kit
 cd research-kit
 python3 core/install/install.py --target /path/to/your/project --kit kit3_research
 ```
