@@ -272,10 +272,15 @@ Research Kit publication pass. Everything below was found by running the thing, 
 
 ### Known limits
 
-- The plugin archive has **not** been loaded by a real Claude Code CLI in this pass
-  (`claude plugin validate --strict`, `claude --plugin-dir`). Neither has Cursor indexed the
-  `.mdc` mirror, nor Codex read the generated `AGENTS.md`. No vendor binary was available.
-  Structure is proven; runtime is not. Review-queue item R-004 stays open.
+- **R-004 closed, 30 July 2026.** The plugin was loaded by a real Claude Code CLI. `claude
+  --plugin-dir plugin` in an empty directory listed all seven components under the
+  `research-kit:` namespace — `deep_research`, `capture_url`, `report_builder`,
+  `research_kit_setup`, `research_router`, `citation_checker`, `install_verifier`. Both
+  manifests pass `claude plugin validate` on a clean clone. Runtime is now proven, not inferred.
+- `--strict` needs a recent CLI. It failed on 2.1.84 and was briefly, wrongly, removed from the
+  docs; the flag is real and documented, and the fix is to upgrade rather than drop it.
+- Still unproven: Cursor has not indexed the `.mdc` mirror, and Codex has not read the generated
+  `AGENTS.md`. Those two adapters remain structure-only.
 
 ### Fixed in the content audit (same 1.4.0 release)
 
