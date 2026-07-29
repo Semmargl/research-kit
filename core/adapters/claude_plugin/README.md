@@ -54,7 +54,7 @@ on a real machine, not in a sandbox.
 
 ```bash
 unzip -q dist/claude-os-kits-all-<version>-plugin.zip -d /tmp/plugin-check
-claude plugin validate /tmp/plugin-check --strict      # 1. schema
+claude plugin validate /tmp/plugin-check               # 1. schema
 claude --plugin-dir /tmp/plugin-check                  # 2. live load
 ```
 

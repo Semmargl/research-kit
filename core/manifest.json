@@ -81,7 +81,7 @@
       "version": "1.2.0",
       "source_of_truth": "original",
       "depends": "none",
-      "sha256": "056caf0a76b7c8370852b472d338e80d0497c718e0089d7b0cb70dffe8ad4711",
+      "sha256": "9a5afe4817649b486e7fb75260c94c94ce62adf18f6140af6fdbb072aba6bb73",
       "note": "Real author injected only into distributed archives; license is the SPDX id CC-BY-NC-SA-4.0."
     },
     {
@@ -91,7 +91,7 @@
       "version": "1.2.0",
       "source_of_truth": "original",
       "depends": "none",
-      "sha256": "ff899d5127cee37993c31dcbefd615273fde4fb0693f28425fc551d77fd32e8f",
+      "sha256": "e0b269cfc49c7142ec3064c4b2a2324f66be43067af72f8318c0e561f00f6229",
       "note": "placeholder limitation of the plugin channel stated."
     },
     {
