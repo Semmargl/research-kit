@@ -1,0 +1,255 @@
+{
+  "kit": "kit3_research",
+  "name": "Claude OS — Research Kit",
+  "version": "1.4.0",
+  "generated": "2026-07-29",
+  "offer": "Analyst-grade research: multi-angle search, verified sources, ready reports.",
+  "requires": [
+    "core"
+  ],
+  "placeholders": {
+    "PROJECT_NAME": "Name Claude uses for the project",
+    "VAULT_PATH": "Absolute path to the project root"
+  },
+  "official_skills_required": [
+    {
+      "name": "deep-research",
+      "vendor": "Anthropic",
+      "required": false,
+      "note": "skills/deep_research works standalone. If the official skill is installed, the fan-out step delegates to it. Not repackaged here — install from Anthropic's own distribution."
+    }
+  ],
+  "files": [
+    {
+      "path": "agents/research_router.md",
+      "target": ".claude/agents/research_router.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Generic-ised: domain boundaries (marketing/audit lanes), quality-log protocol and MCP-specific tool names removed; freshness rule added. removed a promise no skill keeps (per-skill model) and the quick/code lane self-contradiction.",
+      "sha256": "b4a7a2e759cbc5e557f7dbe39d5148573b384a587c9c14368b7a0041dca669a5"
+    },
+    {
+      "path": "agents/citation_checker.md",
+      "target": ".claude/agents/citation_checker.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "shared_with": [
+        "kit1_reliability"
+      ],
+      "note": "Physically shipped by kit3. kit1_reliability references this entry instead of carrying a second copy.",
+      "sha256": "b93f0a767deb1099c2bc0c4b870944380d18061542bfc857a799ea1c87fd08c7"
+    },
+    {
+      "path": "skills/deep_research/SKILL.md",
+      "target": ".claude/skills/deep_research/SKILL.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "note": "Written from scratch. Anthropic's deep-research skill is referenced, never copied.",
+      "sha256": "716305495aad9998c75c21e9572543ac67f99d546561ba8aaa34639daf794df3"
+    },
+    {
+      "path": "skills/capture_url/SKILL.md",
+      "target": ".claude/skills/capture_url/SKILL.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Generic-ised: hardcoded vault path replaced with {{VAULT_PATH}}, owner field dropped, Exa/Filesystem MCP names replaced with capability descriptions, source_tier field added. project-relative paths (plugin channel never renders placeholders); naming pattern covers paper and video.",
+      "sha256": "0119c652c3c8bf1b7572e2d62789dc6550b525eed5d39ac236c8399774e25324"
+    },
+    {
+      "path": "skills/report_builder/SKILL.md",
+      "target": ".claude/skills/report_builder/SKILL.md",
+      "install": "copy",
+      "version": "1.2.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Converted agent to skill; three modes preserved. Model declaration dropped — the source declares opus unconditionally, which contradicts the model-routing rule. See build report, backport item B1. template now carries the TL;DR and Sources sections report_format mandates.",
+      "sha256": "692918f736de1896fb620b9dead68fed6e715b053ca8fe056bfe830bb4c90921"
+    },
+    {
+      "path": "rules/source_grading.md",
+      "target": ".claude/rules/source_grading.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "note": "New. Blueprint §4 lists it under research rules; no single source file existed. recency-vs-authority conflict with citation_checker resolved explicitly.",
+      "sha256": "dc753a27f66decc0389f843cfc9dce0f28c32135bfb3c477a2083b09f98e2087"
+    },
+    {
+      "path": "rules/report_format.md",
+      "target": ".claude/rules/report_format.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "TL;DR-first and progressive-disclosure principles kept; personal accessibility context and client-specific display guidance removed.",
+      "sha256": "32e23b031aead42067ea40b79d060983e9582762f3d20f40c902e8dc1d3a8cf6"
+    },
+    {
+      "path": "templates/report_exec_summary.md",
+      "target": "templates/report_exec_summary.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "sha256": "335dbef78ce0fd7443dd36cd94ea2d2f8e04c9e11e4db983b32a3c9b6906269e"
+    },
+    {
+      "path": "templates/report_html_template.html",
+      "target": "templates/report_html_template.html",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "note": "Self-contained light-theme HTML report shell that report_builder copies. Obeys the skill's Output-as-HTML rules literally: no external assets, no JS, no build step, <details> for the detail layer. A VIEW of the markdown, never the source of truth. render:false so the [[...]] author markers survive install (they are examples, not placeholders).",
+      "render": false,
+      "sha256": "d0533385a3f994323c6faa9da0e1dfabe40d114944c7377bb87121ee9a1ee018"
+    },
+    {
+      "path": "templates/vault_lite/_moc.md",
+      "target": "_moc.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Six-tier vault reduced to three tiers relevant to research work.",
+      "sha256": "57699d5fed394407d70cb0cdb1cc703a957c6bf06d4fc027c6bc2ce12e68ba98"
+    },
+    {
+      "path": "templates/vault_lite/00-capture/_index.md",
+      "target": "00-capture/_index.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "sha256": "3a4cb7d2667887e856ea23fa26ba7dc29fba9f419ea07b927b85a7c83f052465"
+    },
+    {
+      "path": "templates/vault_lite/10-reference/_index.md",
+      "target": "10-reference/_index.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "sha256": "3eebadcef4658c571b3e4779254edcea332530878eb88126d22add9e15061130"
+    },
+    {
+      "path": "templates/vault_lite/30-reports/_index.md",
+      "target": "30-reports/_index.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "sha256": "c2ccdcc293514f46145c865e9664ff0b95c31f7e2c129aa110eb31956241911b"
+    },
+    {
+      "path": "python/embeddings_search/build_embeddings.py",
+      "target": "scripts/embeddings_search/build_embeddings.py",
+      "install": "copy",
+      "version": "1.2.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "optional": true,
+      "note": "Re-targeted from an internal catalog index to plain markdown notes. Hardcoded library root removed. NumPy made optional with a pure-Python fallback. See build report, backport item B2. Empty-result error now separates \"wrong cwd\" from \"fresh install, no notes yet\" - the old text blamed the paths in both cases.",
+      "sha256": "851b3c3cac3ce03b681377542ae9d5576fbb7f325e6103149a24485e00710a60"
+    },
+    {
+      "path": "python/embeddings_search/semantic_search.py",
+      "target": "scripts/embeddings_search/semantic_search.py",
+      "install": "copy",
+      "version": "1.2.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "optional": true,
+      "note": "Hardcoded absolute fallback path removed; tier/repo filters replaced with a path filter; dimension mismatch now fails loudly instead of returning nonsense. error text reprinted the broken command.",
+      "sha256": "c0397ae039c4ba3d0691f16cad3860d003acbe6ab608b9d22dcf8e509a6bbad3"
+    },
+    {
+      "path": "python/embeddings_search/README.md",
+      "target": "scripts/embeddings_search/README.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "optional": true,
+      "sha256": "c1051ebd158ecfc285bb5022931da4ca93fe7387a07eddcb4adb65b20a0beb73",
+      "note": "runnable command, honest network claim, unmeasured thresholds labelled."
+    },
+    {
+      "path": "docs/README.md",
+      "target": "docs/research_kit/README.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "f6f368f5c20e0231728f95cf5b2d75978b83cf1234a18cdb6628d13370b1415b"
+    },
+    {
+      "path": "docs/QUICKSTART.en.md",
+      "target": "docs/research_kit/QUICKSTART.en.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "f5febec79ab47c42208ad744316839d689f2b6f73ad0e42244030a9d48bf5110"
+    },
+    {
+      "path": "docs/QUICKSTART.ru.md",
+      "target": "docs/research_kit/QUICKSTART.ru.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "d080466d7336b92faebd4932cfe29dbfce6988da8f75d346308ed595728c5799"
+    },
+    {
+      "path": "docs/FAQ.md",
+      "target": "docs/research_kit/FAQ.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "76a6fba7d98249544e0b7618ae6aea653e334c574b6d69d1c0c9e5f589c50798"
+    },
+    {
+      "path": "docs/FAQ.ru.md",
+      "target": "docs/research_kit/FAQ.ru.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "note": "Russian translation of FAQ.md. Prose translated; code, paths and file names kept identical to the English so the two locales cannot drift on anything runnable.",
+      "sha256": "2c399adf8c3252b10eba2a00f5ceba64c5d63c6dd5f02dcfd0aa7d6a4d8c0b87"
+    }
+  ],
+  "not_installed": [
+    {
+      "path": "demo/report_isolated_verification_2026-07-18.md",
+      "reason": "Sales and evaluation material. Real data from the reference system; kept in the kit, not written into a customer project.",
+      "sha256": "e229e009682e1103452bbc3d241c28622a15eef8fa8eb13a6d1f36005f712e7a"
+    },
+    {
+      "path": "demo/report_format_example_synthetic.md",
+      "reason": "Format demonstration with explicitly fictional sources. Never installed, so it can never be mistaken for a real report in a project.",
+      "sha256": "3841bc2ebc2efac14da10f3d68a14581703eb3e9107826640ee1b1776401bfc7"
+    },
+    {
+      "path": "python/embeddings_search/.gitignore",
+      "reason": "Applies to the kit folder; the target project has its own ignore rules.",
+      "sha256": "b424f7cd4195abf1c0ed150acb6f0cf12393a2a42f5138a2608d5449e25e76f5"
+    },
+    {
+      "path": "manifest.json",
+      "reason": "Read by the installer."
+    }
+  ],
+  "provenance": "Source-of-truth mapping is retained in the build tree, not shipped."
+}

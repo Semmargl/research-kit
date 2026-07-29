@@ -1,0 +1,95 @@
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+SPDX-License-Identifier: CC-BY-NC-SA-4.0
+
+Copyright (c) 2026 Vladyslav <decebel1995@gmail.com>
+
+================================================================================
+LICENCE NOTICE
+================================================================================
+
+This work — Claude OS Research Kit, all files in this repository — is licensed
+under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+International License.
+
+To view a copy of this licence, visit:
+
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+The full legal text is at:
+
+    https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+That linked text is the licence. This file marks the work and states the
+author's terms; where this file and the legal text differ, the legal text
+governs.
+
+================================================================================
+WHAT THIS MEANS IN PLAIN WORDS
+================================================================================
+
+This section is a summary for convenience. It is not the licence and has no
+legal effect.
+
+YOU MAY, FREE OF CHARGE:
+
+  - Use this kit for personal work, learning, research and teaching.
+  - Copy it, install it in as many of your own projects as you like.
+  - Modify it, adapt the rules and skills to your own field, and share your
+    modified version.
+
+ON THREE CONDITIONS:
+
+  BY  — Attribution. Credit the author, link back to this repository, and say
+        if you changed anything. Suggested wording is in NOTICE.
+
+  NC  — NonCommercial. You may not use this kit primarily for commercial
+        advantage or monetary compensation. That includes selling it,
+        bundling it into a paid product, and using it to deliver paid client
+        work. If you want to do any of those, ask — see below.
+
+  SA  — ShareAlike. If you distribute a modified version, license it under
+        these same terms.
+
+YOU MAY NOT:
+
+  - Add restrictions or DRM that stop others from doing what this licence
+    permits.
+
+WHAT THIS LICENCE DOES NOT TOUCH:
+
+  - Your own research, notes and reports produced with the kit. Those are
+    yours. The licence covers the kit itself, not its output.
+  - Anthropic's official skills. This kit does not repackage them; it
+    references them. Install those from Anthropic's own distribution under
+    their own terms.
+
+================================================================================
+COMMERCIAL USE
+================================================================================
+
+Commercial licences are available. Write to decebel1995@gmail.com with what
+you want to do, and expect a straightforward answer.
+
+Using the kit inside a company on that company's internal work sits in a grey
+area under NC. If money is anywhere near it, ask rather than assume.
+
+================================================================================
+A NOTE ON SOFTWARE FILES
+================================================================================
+
+Most of this repository is prose: rules, agent definitions, skills, templates
+and documentation. Four files are Python (the installer, two adapters and the
+optional embeddings scripts). Creative Commons does not recommend CC licences
+for software, and that recommendation is noted here rather than hidden: those
+four files carry no patent grant and no warranty disclaimer tuned for code.
+They are covered by the same terms as everything else, and if you need
+different terms for them specifically, ask.
+
+================================================================================
+NO WARRANTY
+================================================================================
+
+This work is provided as-is, without warranties or conditions of any kind,
+express or implied. The author is not liable for any damages arising from its
+use. See the "Disclaimer of Warranties and Limitation of Liability" section of
+the linked legal text.

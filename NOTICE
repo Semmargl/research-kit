@@ -1,0 +1,26 @@
+Claude OS — Research Kit
+Copyright (c) 2026 Vladyslav <decebel1995@gmail.com>
+
+Licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+International (CC BY-NC-SA 4.0). Noncommercial use is free. Commercial use
+requires a separate licence — write to the address above.
+
+ATTRIBUTION
+
+If you use, adapt or redistribute this kit, keep this file and credit the
+author. Suggested wording:
+
+    Built on Claude OS — Research Kit by Vladyslav
+    https://github.com/<user>/research-kit — CC BY-NC-SA 4.0
+
+If you modified it, say so:
+
+    Adapted from Claude OS — Research Kit by Vladyslav (modified)
+    https://github.com/<user>/research-kit — CC BY-NC-SA 4.0
+
+THIRD-PARTY
+
+This kit does not repackage Anthropic's official skills. The `deep_research`
+skill here is an independent implementation; Anthropic's own `deep-research`
+skill, if you have it installed, is used but never redistributed. Install it
+from Anthropic's own distribution, under Anthropic's terms.

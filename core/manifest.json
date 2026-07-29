@@ -1,0 +1,191 @@
+{
+  "kit": "core",
+  "name": "Claude OS — Core-Lite",
+  "version": "1.4.0",
+  "generated": "2026-07-29",
+  "offer": "The shared floor every kit stands on: response protocol, model routing, memory pointers, install and verification.",
+  "requires": [],
+  "placeholders": {
+    "PROJECT_NAME": "Name Claude uses for the project",
+    "VAULT_PATH": "Absolute path to the project root",
+    "LANG": "Language for chat replies (en / ru / ua)",
+    "DOMAIN_LIST": "Work areas in play",
+    "OPUS_GATE_%": "Ceiling for top-tier model runs"
+  },
+  "official_skills_required": [],
+  "files": [
+    {
+      "path": "CLAUDE.core.md",
+      "target": "CLAUDE.md",
+      "install": "merge_block",
+      "version": "1.2.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Generic-ised: domain router, MCP inventory, personal accessibility notes and session protocol specifics dropped; response protocol and model routing kept as placeholders. core block: memory section marked Reliability-Kit-conditional (a kit3-only install has no memory/ files).",
+      "sha256": "b0fe8ac41f050f851194b87bee89943075b8d2f3ad6a355b4bcafec121b6ff11"
+    },
+    {
+      "path": "rules/naming.md",
+      "target": ".claude/rules/naming.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "sha256": "6036618871b762151e5ff411307f63ee4ff5d92b398b3778b4bdb4673b4498ab"
+    },
+    {
+      "path": "rules/writing_style.md",
+      "target": ".claude/rules/writing_style.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Source tier names abstracted to reference / method / record. pointer corrected: response protocol lives in the installed CLAUDE.md, not CLAUDE.core.md.",
+      "sha256": "95c5646c05c04a4ab5c3a602b9859917c7480f27fb86b9e0d087c3f57535996a"
+    },
+    {
+      "path": "rules/model_routing.md",
+      "target": ".claude/rules/model_routing.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Domain-specific escalation triggers replaced with generic, testable ones.",
+      "sha256": "58b9f087a4082e961e595f824fb17927d45fc90f4f09454190c908092a0b2a0a"
+    },
+    {
+      "path": "rules/review_policy.md",
+      "target": ".claude/rules/review_policy.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Consumer for the install questionnaire. Without it the review block in claude_os.config.json is written and never read - ORPHANED on the verifier's ladder.",
+      "sha256": "287375745e58cc836d48878e9be307fa577232464c5b4b383fa0165925bd1002"
+    },
+    {
+      "path": "agents/install_verifier.md",
+      "target": ".claude/agents/install_verifier.md",
+      "install": "copy",
+      "version": "1.3.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "note": "Pattern from the isolated verifier runs in the reference system. Explicitly not a quality score (that is the judge, after delivery), and it treats a copied but unregistered hook as a FAIL rather than a PASS. render:false is load-bearing - this file QUOTES the placeholder tokens as the things to hunt for, so rendering it substituted the very examples it tells you to search for and turned the check into an instruction to fail six correctly installed files. v1.3.0: added checks 9-12 (policy has a consumer, per-platform channel, plugin-cannot-carry-rules, BLOCKED never PASS).",
+      "sha256": "66f95bfb589e3bb427cc6e3c7216d77cb601f15cdaa3e26b8da4554cf428f7a8",
+      "render": false
+    },
+    {
+      "path": "adapters/claude_plugin/plugin.json",
+      "target": ".claude/adapters/claude_plugin/plugin.json",
+      "install": "copy",
+      "version": "1.2.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "056caf0a76b7c8370852b472d338e80d0497c718e0089d7b0cb70dffe8ad4711",
+      "note": "Real author injected only into distributed archives; license is the SPDX id CC-BY-NC-SA-4.0."
+    },
+    {
+      "path": "adapters/claude_plugin/README.md",
+      "target": ".claude/adapters/claude_plugin/README.md",
+      "install": "copy",
+      "version": "1.2.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "ff899d5127cee37993c31dcbefd615273fde4fb0693f28425fc551d77fd32e8f",
+      "note": "placeholder limitation of the plugin channel stated."
+    },
+    {
+      "path": "adapters/cursor_sync/cursor_sync.py",
+      "target": ".claude/adapters/cursor_sync/cursor_sync.py",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "internal",
+      "depends": "none",
+      "note": "Port of the make sync target to portable Python, plus write-on-difference for idempotency.",
+      "sha256": "9062a3543020b7117a706ea7ed836b000286cfc613760d4ed35fe9182ad83dfb"
+    },
+    {
+      "path": "adapters/cursor_sync/README.md",
+      "target": ".claude/adapters/cursor_sync/README.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "7c7d1cbd60d9d8dedf67fa139bec4dfe7a96635c24c99e2fc91b1242fa174b4b"
+    },
+    {
+      "path": "adapters/agents_md_export/export_agents_md.py",
+      "target": ".claude/adapters/agents_md_export/export_agents_md.py",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "94eba0a688707aa8ef54b935ded14d2afc55df40f46f59beaf41b0420c772282"
+    },
+    {
+      "path": "adapters/agents_md_export/README.md",
+      "target": ".claude/adapters/agents_md_export/README.md",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "f81698f9e18934288f992570ab32c5df24f02769021cc863a262f1529a90aebf"
+    },
+    {
+      "path": "install/uninstall.py",
+      "target": ".claude/install/uninstall.py",
+      "install": "copy",
+      "version": "1.0.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "note": "Shipped into the target so removal stays possible after the kit folder is gone.",
+      "sha256": "483a609541b2ec59e9ed87bd0b694a2afba1ace03be321d587d130ce54215f68"
+    },
+    {
+      "path": "install/uninstall.md",
+      "target": ".claude/install/uninstall.md",
+      "install": "copy",
+      "version": "1.1.0",
+      "source_of_truth": "original",
+      "depends": "none",
+      "sha256": "794bd033ef083e4610b7b46ba5c6cc175c9bd089dce57ddf6a29257fda76ee4d"
+    }
+  ],
+  "not_installed": [
+    {
+      "path": "install/install.py",
+      "reason": "Resolves the kit root from its own location. Runs from the kit folder, never from the target.",
+      "sha256": "416978c451f6107bf82ae50c57e6387a53e72977a0eb81ec5874aec0f8838725"
+    },
+    {
+      "path": "install/INSTALL.ru.md",
+      "reason": "Read before installing, from the kit folder.",
+      "sha256": "94511d96e6966ef8962dac69a7756c1d9f297e1cc4b3101ade1a053a8457aeea"
+    },
+    {
+      "path": "install/INSTALL.en.md",
+      "reason": "Read before installing, from the kit folder.",
+      "sha256": "f8a71203409adb1c8d66bf6d0e7b3e991ac3d2556385c101fdee1b5d92f853de"
+    },
+    {
+      "path": "install/preflight_check.md",
+      "reason": "Read before installing, from the kit folder.",
+      "sha256": "6283325e53fe5d0b522968b8c74604afe85198781e68479f5953817a3a4bd68e"
+    },
+    {
+      "path": "manifest.json",
+      "reason": "Read by the installer; install state is recorded in .claude_os/installed.json instead."
+    },
+    {
+      "path": "VERSION",
+      "reason": "Kit metadata. The installed version is recorded in .claude_os/installed.json.",
+      "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "Kit metadata, read before upgrading.",
+      "sha256": "b3b030c9aed1407fe29bc4a69a196d22830d782de359d377f5590a8b10a61be9"
+    }
+  ],
+  "provenance": "Source-of-truth mapping is retained in the build tree, not shipped."
+}
