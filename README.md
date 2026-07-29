@@ -43,6 +43,18 @@ nothing. To accept the defaults anyway: add `--yes`.
 The installer **never creates a scheduled job**. If you ask for a weekly retro it prints the
 cron line and leaves it to you.
 
+### Or have your IDE agent do it
+
+If you would rather not run anything by hand, paste one prompt into Cursor, Claude Code, Windsurf,
+Codex or Copilot Chat and let the agent plan the install against your project, apply it, and
+verify it: [docs/install-via-agent.md](docs/install-via-agent.md).
+
+That prompt still tells the agent to run `install.py` whenever it can. An agent copying
+thirty-five files by hand is less reliable than a script that hashes each one — it can drop a
+file or paraphrase a rule and be confident while doing so. What the agent adds is the part a
+script cannot do: reading your project, working out which platform adapter you need, and
+answering "where does this go in *my* layout".
+
 ### Verify the install
 
 In a **fresh session** — this matters:
