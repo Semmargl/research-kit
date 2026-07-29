@@ -1,0 +1,16 @@
+{
+  "name": "research-kit",
+  "version": "1.4.0",
+  "description": "Analyst-grade research for Claude Code: a router that picks one lane, multi-angle search with adversarial verification, and an isolated citation checker that grades claims against the sources rather than the author.",
+  "author": {
+    "name": "Vladyslav",
+    "email": "decebel1995@gmail.com"
+  },
+  "license": "CC-BY-NC-SA-4.0",
+  "keywords": [
+    "research",
+    "verification",
+    "citations",
+    "sources"
+  ]
+}

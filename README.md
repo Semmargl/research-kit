@@ -18,20 +18,45 @@ arriving without their scope, and three citations stacked after four claims.
 
 ## Install
 
-Three steps. The third is the one people skip, and it is the one that makes the kit yours.
+Three routes. Pick by how much of the kit you want and how much terminal you can stand.
+
+### Fastest — inside Claude Code, no terminal
+
+```
+/plugin marketplace add https://github.com/Semmargl/research-kit.git
+/plugin install research-kit@semmargl
+/reload-plugins
+```
+
+Then run `/research-kit-setup`. It asks four questions and writes the rules.
+
+That last step is not optional and not a formality. **Claude Code plugins have no rules component**,
+so the plugin brings the router, the agents and the skills, but not source grading, report format or
+the review policy — the parts that decide whether output is checkable. The setup skill installs them.
+Skip it and the kit routes and searches but grades nothing.
+
+Use the full HTTPS URL as written. The `owner/repo` shorthand clones over SSH, which fails for
+anyone without keys on that account.
+
+### Complete — the installer
 
 ```bash
-git clone <this repo> research-kit
+git clone https://github.com/Semmargl/research-kit.git
 cd research-kit
 python3 core/install/install.py --target /path/to/your/project --kit kit3_research
 ```
 
-Core-Lite installs automatically as a dependency. **Run the installer from this folder**, not
-from your project — it resolves the kit root from its own location.
+Stdlib-only Python 3.8+, nothing to `pip install`. Core-Lite installs automatically as a dependency.
+**Run the installer from this folder**, not from your project — it resolves the kit root from its own
+location.
 
-### Or paste this prompt into your agent
+This is the only route that installs everything: rules, vault templates, report templates, the
+optional semantic search, and the Cursor and Codex adapters. Use it when you are installing for other
+people or more than once — you also get an audit trail in `.claude_os/installed.json`.
 
-Don't want to run anything yourself? Copy the block below into the chat of Cursor, Claude Code,
+### In between — hand it to an agent
+
+No Claude Code, but some other agent that reads files and runs commands? Copy the block below into the chat of Cursor, Claude Code,
 Windsurf, Codex, Copilot or any agent that can read files and run commands. It fetches the kit,
 asks which project to install into, and runs the same installer.
 
@@ -118,6 +143,7 @@ that environment; it is never silently upgraded to PASS.
 | `source_grading` rule | A/B/C/D tiers, chain-following, the rule for surprising claims. |
 | `report_format` rule | TL;DR first, claims carry their sources, confidence stated. |
 | `review_policy` rule | How much checking a task gets — reads your install answers. |
+| `research_kit_setup` skill | Plugin route only: asks the four questions and writes the rules a plugin cannot ship. |
 | `vault_lite` templates | Three-tier note skeleton: capture, reference, reports. |
 | `embeddings_search` | Optional local semantic search. Off by default, talks only to localhost. |
 
@@ -134,9 +160,9 @@ from Anthropic's own distribution.
   it changes is whether the output is checkable.
 - **Low confidence is a result, not a failure.** Honestly reported thin evidence tells you the
   question needs better sources.
-- **The plugin archive cannot carry rules.** Claude Code plugins have no rules component;
-  `install.py` writes them to `.claude/rules/`, where they load. Installing only the plugin gives
-  you agents and skills without the rules.
+- **The plugin cannot carry rules.** Claude Code plugins have no rules component. The
+  `/research-kit-setup` skill exists to close that gap, and `install.py` does it directly. Installing
+  the plugin and skipping setup gives you agents and skills with nothing grading their output.
 - Web searches and page fetches leave your machine, as in any research. The optional embeddings
   module does not.
 

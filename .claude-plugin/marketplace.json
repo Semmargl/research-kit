@@ -1,0 +1,17 @@
+{
+  "name": "semmargl",
+  "owner": {
+    "name": "Vladyslav",
+    "email": "decebel1995@gmail.com"
+  },
+  "metadata": {
+    "description": "Research tooling for Claude Code by Vladyslav. Sourced, verifiable research: one-lane routing, adversarial verification, isolated citation checking. CC BY-NC-SA 4.0 \u2014 noncommercial use is free."
+  },
+  "plugins": [
+    {
+      "name": "research-kit",
+      "source": "./plugin",
+      "description": "Research with sources that hold up: one-lane routing, adversarial verification, isolated citation checking. Run /research-kit-setup after install to add the rules a plugin cannot carry."
+    }
+  ]
+}
