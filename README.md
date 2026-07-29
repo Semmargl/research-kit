@@ -21,13 +21,48 @@ arriving without their scope, and three citations stacked after four claims.
 Three steps. The third is the one people skip, and it is the one that makes the kit yours.
 
 ```bash
-git clone https://github.com/Semmargl/research-kit.git research-kit
+git clone <this repo> research-kit
 cd research-kit
 python3 core/install/install.py --target /path/to/your/project --kit kit3_research
 ```
 
 Core-Lite installs automatically as a dependency. **Run the installer from this folder**, not
 from your project — it resolves the kit root from its own location.
+
+### Or paste this prompt into your agent
+
+Don't want to run anything yourself? Copy the block below into the chat of Cursor, Claude Code,
+Windsurf, Codex, Copilot or any agent that can read files and run commands. It fetches the kit,
+asks which project to install into, and runs the same installer.
+
+```text
+Install the Claude OS Research Kit into a project on this machine.
+
+1. Get the kit from https://github.com/Semmargl/research-kit — clone it, or
+   download and unpack the archive, whichever works here. Put it in a scratch
+   folder, NOT inside my project.
+2. Ask me which project to install into. Wait for my answer.
+3. From the kit folder, run:
+     python3 core/install/install.py --target <the project I named> --kit kit3_research
+   Stdlib-only Python 3.8+, nothing to pip install. Core-Lite comes along
+   automatically. Let the installer ask me its questions — do not pass --yes,
+   and do not answer them on my behalf.
+4. Create no cron job and no scheduled task, whatever I answered.
+5. Then clear your context and run:
+     Read .claude/agents/install_verifier.md and verify this install.
+   Report its PASS / FAIL / BLOCKED lines to me unedited.
+
+If you cannot run Python here, say so and stop. Do not copy the files by hand
+without telling me first.
+```
+
+The prompt keeps the agent on `install.py` on purpose. A script that hashes every file is more
+reliable than an agent copying thirty-five of them by hand — an agent can drop one or paraphrase
+a rule, and sound confident either way. What it adds is the part a script cannot do: reading your
+project, picking the right platform adapter, and working out where things go in *your* layout.
+
+Longer version, including what to do when the agent genuinely cannot run the script:
+[docs/install-via-agent.md](docs/install-via-agent.md).
 
 ### Step 3 — answer the questions
 
@@ -42,18 +77,6 @@ nothing. To accept the defaults anyway: add `--yes`.
 
 The installer **never creates a scheduled job**. If you ask for a weekly retro it prints the
 cron line and leaves it to you.
-
-### Or have your IDE agent do it
-
-If you would rather not run anything by hand, paste one prompt into Cursor, Claude Code, Windsurf,
-Codex or Copilot Chat and let the agent plan the install against your project, apply it, and
-verify it: [docs/install-via-agent.md](docs/install-via-agent.md).
-
-That prompt still tells the agent to run `install.py` whenever it can. An agent copying
-thirty-five files by hand is less reliable than a script that hashes each one — it can drop a
-file or paraphrase a rule and be confident while doing so. What the agent adds is the part a
-script cannot do: reading your project, working out which platform adapter you need, and
-answering "where does this go in *my* layout".
 
 ### Verify the install
 
